@@ -17,12 +17,12 @@ class User
     /**
      * @Column(type="string")
      */
-    private $firstname;
+    private $first_name;
 
     /**
      * @Column(type="string")
      */
-    private $lastname;
+    private $last_name;
 
     /**
      * @Column(type="string")
@@ -35,11 +35,17 @@ class User
     private $password;
 
     /**
+     * @Column(type="datetime")
+     */
+    private $date_created;
+
+    /**
      * One user can have many folders
      * @OneToMany(targetEntity="Folder", mappedBy="user", cascade={"all"})
      * @var Doctrine\Common\Collection\ArrayCollection
      */
     private $folders;
+    
     /**
      * Constructor
      */
@@ -59,51 +65,51 @@ class User
     }
 
     /**
-     * Set firstname.
+     * Set firstName.
      *
-     * @param string $firstname
+     * @param string $firstName
      *
      * @return User
      */
-    public function setFirstname($firstname)
+    public function setFirstName($firstName)
     {
-        $this->firstname = $firstname;
+        $this->first_name = $firstName;
 
         return $this;
     }
 
     /**
-     * Get firstname.
+     * Get firstName.
      *
      * @return string
      */
-    public function getFirstname()
+    public function getFirstName()
     {
-        return $this->firstname;
+        return $this->first_name;
     }
 
     /**
-     * Set lastname.
+     * Set lastName.
      *
-     * @param string $lastname
+     * @param string $lastName
      *
      * @return User
      */
-    public function setLastname($lastname)
+    public function setLastName($lastName)
     {
-        $this->lastname = $lastname;
+        $this->last_name = $lastName;
 
         return $this;
     }
 
     /**
-     * Get lastname.
+     * Get lastName.
      *
      * @return string
      */
-    public function getLastname()
+    public function getLastName()
     {
-        return $this->lastname;
+        return $this->last_name;
     }
 
     /**
@@ -188,5 +194,29 @@ class User
     public function getFolders()
     {
         return $this->folders;
+    }
+
+    /**
+     * Set dateCreated.
+     *
+     * @param \DateTime $dateCreated
+     *
+     * @return User
+     */
+    public function setDateCreated($dateCreated)
+    {
+        $this->date_created = $dateCreated;
+
+        return $this;
+    }
+
+    /**
+     * Get dateCreated.
+     *
+     * @return \DateTime
+     */
+    public function getDateCreated()
+    {
+        return $this->date_created;
     }
 }

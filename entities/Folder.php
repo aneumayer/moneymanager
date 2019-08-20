@@ -38,6 +38,7 @@ class Folder
      * @var Doctrine\Common\Collection\ArrayCollection
      */
     private $accounts;
+    
     /**
      * Constructor
      */
